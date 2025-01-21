@@ -14,7 +14,6 @@ const [femaleCharacters, setFemaleCharacters] = useState([])
 
     function avgRating(rating){
         const avg = rating / 2;
-        console.log(avg)
         return avg;
     }
     function displayFemaleCharacters(){
@@ -34,9 +33,24 @@ const [femaleCharacters, setFemaleCharacters] = useState([])
         setFemaleCharacters(newCharacters);
     }
 
+    function filterCharactersByRating(min, max){
+        if(isNaN(min)) min = 0;     
+        const minRating = parseFloat(min);
+        
+        if(isNaN(max)) max = Infinity;  
+        const maxRating = parseFloat(max);
+
+        const filteredCharacters = FemaleCharacters.filter(character => {
+            const power = parseFloat(character.rating);
+            return power >= minRating && power <= maxRating;
+        })
+
+        setFemaleCharacters(filteredCharacters);
+    }
+
     return(
         <>
-            <Filter />
+            <Filter onFilter={filterCharactersByRating} />
             <section id="grid-characters" className="grid-4">
             {femaleCharacters.map(character =>
                 <article key={character.id} className="dark">

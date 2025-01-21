@@ -15,8 +15,8 @@ export default function Filter(props) {
     return (
         <div className="filter dark">
                <div className="filter-controls dark">
-                    <input onChange={(e) => setMinRating(e.target.value)} type="number" placeholder="Minimum Rating" className="dark filter-input" value={minRating}/>
-                    <input onChange={(e) => setMaxRating(e.target.value)} type="number" placeholder="Maximum Rating" className="dark filter-input" value={maxRating}/>
+                    <input onChange={(e) => setMinRating(e.target.value)} type="number" placeholder="Minimum Rating" className="dark filter-input" />
+                    <input onChange={(e) => setMaxRating(e.target.value)} type="number" placeholder="Maximum Rating" className="dark filter-input" />
                 <button onClick= {handleFilter} className="dark filter-button">Filter</button>
                </div>
                <div className="options dark">
